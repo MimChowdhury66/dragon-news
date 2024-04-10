@@ -4,11 +4,12 @@ import LeftSideNav from "../LeftSide/LeftSideNav";
 import Navbar from "../Navbar/Navbar";
 import RightSideNav from "../RightSide/RightSideNav";
 import BreakingNews from "./BreakingNews";
+import NewsCard from "./NewsCard";
 
 const Home = () => {
 
     const news = useLoaderData();
-    console.log(news)
+    // console.log(news)
 
     return (
         <div>
@@ -20,7 +21,13 @@ const Home = () => {
                 <div>
                     <LeftSideNav></LeftSideNav>
                 </div>
-                <div className="lg:col-span-2 border"><h2 className="text-4xl">News coming soon</h2></div>
+                <div className="lg:col-span-2  "><h2 className="text-4xl mb-5 text-center">Dragon News Home</h2>
+                    <div className="grid justify-center gap-4">
+                        {
+                            news.map(aNews => <NewsCard key={aNews._id} news={aNews}></NewsCard>)
+                        }
+                    </div>
+                </div>
                 <div>
                     <RightSideNav></RightSideNav>
                 </div>
